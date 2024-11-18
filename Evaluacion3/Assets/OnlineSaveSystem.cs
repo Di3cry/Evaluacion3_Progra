@@ -7,8 +7,22 @@ using Unity.Services.CloudSave;
 using Unity.Services.Core;
 using UnityEngine;
 
-public class OnlineSaveSystem
+public class OnlineSaveSystem : MonoBehaviour
 {
+    public static OnlineSaveSystem Instance;
+
+    private void Awake()
+    {
+        if( Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public async void StartService()
     {
         await UnityServices.InitializeAsync();
@@ -22,11 +36,11 @@ public class OnlineSaveSystem
 
     public async void ClearPlayerID()
     {
-        Debug.Log(AuthenticationService.Instance.PlayerId);
+     
         AuthenticationService.Instance.ClearSessionToken();
         AuthenticationService.Instance.SignOut();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        Debug.Log(AuthenticationService.Instance.PlayerId);
+ 
     }
 
     public string GetPlayerID()
@@ -55,7 +69,7 @@ public class OnlineSaveSystem
         await AuthenticationService.Instance.UpdatePlayerNameAsync(userName);
     }
 
-    async Task<string> AddUserNamePassAsync(string userName, string password)
+    public async Task<string> AddUserNamePassAsync(string userName, string password)
     {
         try
         {
