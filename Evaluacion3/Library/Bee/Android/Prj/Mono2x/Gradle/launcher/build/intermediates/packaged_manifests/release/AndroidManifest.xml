@@ -3,7 +3,7 @@
     package="com.ManUtd.Evaluacion3"
     android:installLocation="preferExternal"
     android:versionCode="1"
-    android:versionName="1" >
+    android:versionName="2" >
 
     <uses-sdk
         android:minSdkVersion="22"
@@ -15,6 +15,8 @@
         android:normalScreens="true"
         android:smallScreens="true"
         android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:glEsVersion="0x00030000" />
     <uses-feature
@@ -71,6 +73,17 @@
             <meta-data
                 android:name="notch_support"
                 android:value="true" />
+
+            <intent-filter xmlns:android="http://schemas.android.com/apk/res/android" >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="com.unityplayeraccounts.9ce34966-92a5-46d3-a46d-49d7c3a665c9"
+                    android:scheme="unitydl" />
+            </intent-filter>
         </activity>
     </application>
 
