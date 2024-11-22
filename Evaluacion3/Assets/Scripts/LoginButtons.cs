@@ -10,6 +10,7 @@ public class LoginButtons : MonoBehaviour
 {
     public LoginScript loginScript;
     public SaveLoad saveLoad;
+    PlayerDataScript playerDataScript;
     public TMP_InputField usernameField;
     public TMP_InputField passwordField;
     public TMP_InputField equipoField;
@@ -65,16 +66,27 @@ public class LoginButtons : MonoBehaviour
 
     public void SaveData()
     {
-        string keyEquipo = equipoField.name;
-        string valueEquipo = equipoField.text;
-        string keyName = nameField.name;
-        string valueName = nameField.text;
-        string keyEdad = edadField.name;
-        string valueEdad = edadField.text;
+        SaveLoad saveLoad = new SaveLoad();
+        PlayerDataStruct playerData = new PlayerDataStruct(nameField.text, edadField.text, equipoField.text);
+        saveLoad.SaveData(playerData, "Data");
 
-        loginScript.SaveInfoPlayer(keyEquipo, saveLoad.data);
-        //loginScript.SaveInfoPlayer(keyName, valueName);
-        //loginScript.SaveInfoPlayer(keyEdad, valueEdad);
+
+
+
+
+
+
+        //string keyEquipo = equipoField.name;
+        //string valueEquipo = equipoField.text;
+        //string keyName = nameField.name;
+        //string valueName = nameField.text;
+        //string keyEdad = edadField.name;
+        //string valueEdad = edadField.text;
+
+
+        loginScript.SaveInfoPlayer("Data", saveLoad.data);
+        ////loginScript.SaveInfoPlayer(keyName, valueName);
+        ////loginScript.SaveInfoPlayer(keyEdad, valueEdad);
 
     }
 
