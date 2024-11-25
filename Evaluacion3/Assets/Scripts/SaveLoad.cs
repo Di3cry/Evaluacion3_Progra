@@ -6,6 +6,7 @@ public class SaveLoad : MonoBehaviour
 {
     public const string PlayerDataKey = "PlayerDataKey";
     public string data;
+    public string dataCargada;
     private void Update()
     {
         Debug.Log(data);
@@ -21,4 +22,11 @@ public class SaveLoad : MonoBehaviour
         PlayerDataScript playerDataScript = new PlayerDataScript(playerDataStruct);
         data = JsonUtility.ToJson(playerDataScript);
     }
+
+
+
+    //public PlayerDataScript(string _id)
+    //{
+    //    dataCargada = ;
+    //}
 }

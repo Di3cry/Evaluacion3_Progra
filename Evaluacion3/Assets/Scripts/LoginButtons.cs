@@ -76,17 +76,11 @@ public class LoginButtons : MonoBehaviour
 
 
 
-        //string keyEquipo = equipoField.name;
-        //string valueEquipo = equipoField.text;
-        //string keyName = nameField.name;
-        //string valueName = nameField.text;
-        //string keyEdad = edadField.name;
-        //string valueEdad = edadField.text;
+
 
 
         loginScript.SaveInfoPlayer("Data", saveLoad.data);
-        ////loginScript.SaveInfoPlayer(keyName, valueName);
-        ////loginScript.SaveInfoPlayer(keyEdad, valueEdad);
+
 
     }
 
@@ -97,8 +91,7 @@ public class LoginButtons : MonoBehaviour
         string keyEdad = edadField.name;
 
         loginScript.LoadInfoPlayer(keyEquipo, GetData);
-        //loginScript.LoadInfoPlayer(keyName, GetData);
-        //loginScript.LoadInfoPlayer(keyEdad, GetData);
+
     }
 
     public void GetData(string data)

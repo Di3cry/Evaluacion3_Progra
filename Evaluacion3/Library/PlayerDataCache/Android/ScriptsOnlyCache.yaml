@@ -5,11 +5,10 @@ ScriptsOnlyBuild:
     - LoginScript
     - OnlineSaveSystem
     - PanelManager
+    - SaveLoad
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.Services.Authentication.PlayerAccounts:
-    - Unity.Services.Authentication.PlayerAccounts.UnityPlayerAccountSettings
-    Unity.Services.Authentication.PlayerAccounts.dll:
     - Unity.Services.Authentication.PlayerAccounts.UnityPlayerAccountSettings
     Unity.TextMeshPro:
     - TMPro.TMP_ColorGradient
@@ -77,19 +76,34 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: PanelManager
-    methodName: BotonInicioSesion
+    methodName: BotonDatos
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginButtons
+    methodName: LoginButton
+  - assembly: Assembly-CSharp
+    fullTypeName: PanelManager
+    methodName: BotonVolver
+  - assembly: Assembly-CSharp
+    fullTypeName: PanelManager
+    methodName: BotonVolver
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginButtons
+    methodName: SaveData
   - assembly: Assembly-CSharp
     fullTypeName: PanelManager
     methodName: BotonCrearCuenta
   - assembly: Assembly-CSharp
     fullTypeName: LoginButtons
-    methodName: LoginButton
+    methodName: CargarData
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginButtons
+    methodName: GetData
   - assembly: Assembly-CSharp
     fullTypeName: LoginButtons
     methodName: CerrarSesion
   - assembly: Assembly-CSharp
     fullTypeName: PanelManager
-    methodName: BotonVolver
+    methodName: BotonInicioSesion
   - assembly: Assembly-CSharp
     fullTypeName: PanelManager
     methodName: BotonVolver
@@ -121,45 +135,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16646}
+      Script: {instanceID: 16618}
     - Class: 114
-      Script: {instanceID: 16700}
+      Script: {instanceID: 16648}
     - Class: 114
-      Script: {instanceID: 16844}
+      Script: {instanceID: 16702}
     - Class: 114
-      Script: {instanceID: 17396}
+      Script: {instanceID: 16846}
     - Class: 114
-      Script: {instanceID: 17924}
+      Script: {instanceID: 17400}
     - Class: 114
-      Script: {instanceID: 18178}
+      Script: {instanceID: 17928}
     - Class: 114
-      Script: {instanceID: 18740}
+      Script: {instanceID: 18182}
     - Class: 114
-      Script: {instanceID: 19372}
+      Script: {instanceID: 18744}
     - Class: 114
-      Script: {instanceID: 19598}
+      Script: {instanceID: 19600}
     - Class: 114
-      Script: {instanceID: 19706}
+      Script: {instanceID: 19708}
     - Class: 114
-      Script: {instanceID: 19724}
+      Script: {instanceID: 19726}
     - Class: 114
-      Script: {instanceID: 20048}
+      Script: {instanceID: 20050}
     - Class: 114
-      Script: {instanceID: 20702}
+      Script: {instanceID: 20704}
     - Class: 114
-      Script: {instanceID: 20944}
+      Script: {instanceID: 20932}
     - Class: 114
-      Script: {instanceID: 21618}
+      Script: {instanceID: 20948}
     - Class: 114
-      Script: {instanceID: 21810}
+      Script: {instanceID: 21624}
     - Class: 114
-      Script: {instanceID: 22202}
+      Script: {instanceID: 21816}
     - Class: 114
-      Script: {instanceID: 22590}
+      Script: {instanceID: 22208}
     - Class: 114
-      Script: {instanceID: 22632}
+      Script: {instanceID: 22596}
     - Class: 114
-      Script: {instanceID: 23380}
+      Script: {instanceID: 22638}
+    - Class: 114
+      Script: {instanceID: 23386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,6 +193,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: ee9982496c740dde361f2de425995fef
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: OnlineSaveSystem
   - hash:
       serializedVersion: 2
       Hash: d41ab9b5ea92474f9c0a6937a0607ce1
@@ -557,12 +579,6 @@ ScriptsOnlyBuild:
     className: UnityOnPointerExitMessageListener
   - hash:
       serializedVersion: 2
-      Hash: ee9982496c740dde361f2de425995fef
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: OnlineSaveSystem
-  - hash:
-      serializedVersion: 2
       Hash: 1deda86fe7ffd8587afcfe68a02d034c
     assemblyName: Assembly-CSharp
     namespaceName: 
@@ -815,6 +831,12 @@ ScriptsOnlyBuild:
     className: UnityOnTriggerExitMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 54ab68241f9cef995415dd7534474bf9
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: SaveLoad
+  - hash:
+      serializedVersion: 2
       Hash: 17f82e3e7d8f8b07a270a4aad9bfe79d
     assemblyName: Unity.TextMeshPro
     namespaceName: TMPro
@@ -825,6 +847,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: TMPro
     className: TMP_DigitValidator
+  - hash:
+      serializedVersion: 2
+      Hash: a0d39a0da5f437ebc7c6dd10c66de748
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerData
   - hash:
       serializedVersion: 2
       Hash: d82086405f46de14829f6b4bcbdd8fc9
@@ -971,7 +999,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: 828c20e7035b30fb12025f5f8825d4f2
+      Hash: 9af605fb8b1d88eee6e23d57b5b31d18
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: PanelManager
@@ -1109,7 +1137,7 @@ ScriptsOnlyBuild:
     className: UnityOnMoveMessageListener
   - hash:
       serializedVersion: 2
-      Hash: c0c92143236edc7908fae7b19676bcdf
+      Hash: f7a3c98d2d5a58dc9a75a6d7b2eec253
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: LoginButtons
@@ -1236,4 +1264,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/Documentos/builds/test4.apk
+  playerPath: D:/bUILDS/Login/Login.apk
