@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class PanelManager : MonoBehaviour
 {
     public GameObject panelInicio;
@@ -44,6 +45,15 @@ public class PanelManager : MonoBehaviour
     {
         print(InputField.text);
         Debug.Log(AuthenticationService.Instance.PlayerId);
+    }
+
+    public void Ramos()
+    {
+        if(AuthenticationService.Instance.IsSignedIn)
+        {
+
+            SceneManager.LoadScene("Ramos");
+        }
     }
 
 }

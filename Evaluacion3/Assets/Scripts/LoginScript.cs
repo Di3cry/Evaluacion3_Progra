@@ -130,12 +130,13 @@ public class LoginScript : MonoBehaviour
         }
     }
 
-    public async void LoginWithUsernamePassword(string username, string password)
+    public async void LoginWithUsernamePassword(string username, string password, TextMeshProUGUI mensaje)
     {
         try
         {
             await AuthenticationService.Instance.SignInWithUsernamePasswordAsync(username, password);
             Debug.Log($"Logged in successfully as {username}. Player ID: {AuthenticationService.Instance.PlayerId}");
+            mensaje.text = "Sesion Iniciada Como: " + username;
         }
         catch (AuthenticationException ex)
         {
@@ -144,6 +145,7 @@ public class LoginScript : MonoBehaviour
         catch (RequestFailedException ex)
         {
             Debug.LogError($"Request failed: {ex}");
+            mensaje.text = "Error Al Iniciar Sesion";
         }
     }
 

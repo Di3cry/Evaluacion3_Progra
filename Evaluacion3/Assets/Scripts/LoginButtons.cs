@@ -61,13 +61,22 @@ public class LoginButtons : MonoBehaviour
         string username = usernameField.text;
         string password = passwordField.text;
 
-        loginScript.LoginWithUsernamePassword(username, password);
+        loginScript.LoginWithUsernamePassword(username, password, mensaje);
+        //if(AuthenticationService.Instance.IsSignedIn)
+        //{
+
+        //    mensaje.text = "Logeado como:" + username;
+        //}
+        //if (!AuthenticationService.Instance.IsSignedIn)
+        //{
+        //    mensaje.text = "Error Al Iniciar Sesion";
+        //}
     }
 
     public void SaveData()
     {
         SaveLoad saveLoad = new SaveLoad();
-        PlayerDataStruct playerData = new PlayerDataStruct(nameField.text, edadField.text, equipoField.text);
+        PlayerDataStruct playerData = new PlayerDataStruct(nameField.text, edadField.text, equipoField.text, "", 0, 0);
         saveLoad.SaveData(playerData, "Data");
 
 
@@ -90,14 +99,18 @@ public class LoginButtons : MonoBehaviour
         string keyName = nameField.name;
         string keyEdad = edadField.name;
 
-        loginScript.LoadInfoPlayer(keyEquipo, GetData);
+        loginScript.LoadInfoPlayer("Data", GetData);
 
     }
 
-    public void GetData(string data)
+    void GetData(string data)
     {
-        loginScript.GetInfo();
-        equipoField.text = data;
+        Debug.Log(data);
+        string json = data;
+        PlayerDataStruct playerDataStruct = JsonUtility.FromJson<PlayerDataStruct>(data);
+        equipoField.text = playerDataStruct.playerTeam;
+        nameField.text = playerDataStruct.playerName;
+        edadField.text = playerDataStruct.playerAge;
     }
 
 }
